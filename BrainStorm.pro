@@ -24,8 +24,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    mentalquest.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    mentalquest.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    mentalquest.ui
