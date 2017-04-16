@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "mentalquest.h"
+#include "mentalsett.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -24,6 +24,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::mentalClicked()
 {
-    MentalQuest *quest=new MentalQuest();
-    quest->show();
+    MentalSett *sett=new MentalSett();
+    sett->show();
 }

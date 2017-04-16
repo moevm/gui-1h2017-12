@@ -2,8 +2,7 @@
 #include "ui_mentalquest.h"
 #include <QDebug>
 
-MentalQuest::MentalQuest(QWidget *parent) :
-    QWidget(parent)
+MentalQuest::MentalQuest(QWidget *parent) : QWidget(parent)
 {
     this->ui=new Ui::MentalQuest;
     ui->setupUi(this);
@@ -17,7 +16,7 @@ MentalQuest::MentalQuest(QWidget *parent) :
 
     QObject::connect(clock,SIGNAL(stop()),this,SLOT(timeStop()));
     QObject::connect(ansbut,SIGNAL(clicked(bool)),this,SLOT(result()));
-    QObject::connect(exit,SIGNAL(clicked(bool)),this,SLOT(close()));
+    QObject::connect(exit,SIGNAL(clicked(bool)),this,SLOT(exit()));
 
     ansbut->setVisible(false);
     anslabel->setVisible(false);
@@ -27,6 +26,15 @@ MentalQuest::MentalQuest(QWidget *parent) :
 MentalQuest::~MentalQuest()
 {
     delete ui;
+}
+
+void MentalQuest::initClock(bool neg, int count, int time, int diap)
+{
+    clock->setNeg(neg);
+    clock->setTimer(time);
+    clock->setDiap(diap);
+    clock->setNumCount(count);
+    clock->ptimer->start(time-1);
 }
 
 void MentalQuest::timeStop()
@@ -39,6 +47,14 @@ void MentalQuest::timeStop()
     answer->setEnabled(true);
     clock->setVisible(false);
 
+}
+
+void MentalQuest::exit()
+{
+    clock->ptimer->stop();
+    this->close();
+    clock->~Clock();
+    this->~MentalQuest();
 }
 
 void MentalQuest::result()
@@ -55,28 +71,35 @@ void MentalQuest::result()
     QFont font = clock->font();
         font.setPointSize(40);
     clock->setFont(font);
-
+    QString ans=QString::number(clock->sum);
     if(clock->sum==result.toInt()) clock->setText("<CENTER>Succses</CENTER>");
-    else clock->setText("<CENTER> Incorrect: " + result + "</CENTER>");
+    else clock->setText("<CENTER> Incorrect: " + ans + "</CENTER>");
 
     clock->setVisible(true);
 }
 
 Clock::Clock(QWidget* parent) : QLabel(parent)
 {
-    nums=5;
+    negp=20;
     sum=0;
     cur=0;
     ptimer = new QTimer(this);
     QObject::connect(ptimer,SIGNAL(timeout()),this,SLOT(slotUpdateDateTime()));
-    ptimer->start(1000);
 }
 
 
 void Clock::slotUpdateDateTime()
 {
     cur++;
-    int rand=qrand() % 20;
+    int p=qrand() % 100;
+    int rand=qrand() % diap;
+    if(cur>1)//Для всех чисел после 1го
+    {
+        while(rand==last) // Совпадение 2х чисел подряд
+            rand=qrand() % diap;
+    }
+    last=rand; //Запомнили предыдущее число
+    if((neg)&&(p<negp)) rand=-rand; //С вероятностью отрицаем число
         qDebug() << rand;
     sum=sum+rand;
     QString str = QString::number(rand);
@@ -89,7 +112,26 @@ void Clock::slotUpdateDateTime()
     }
 }
 
+
 Clock::~Clock()
 {
 
+}
+
+void Clock::setNeg(bool neg)
+{
+    this->neg=neg;
+}
+void Clock::setNumCount(int count)
+{
+    this->nums=count;
+}
+void Clock::setDiap(int diap)
+{
+    this->diap=diap;
+}
+
+void Clock::setTimer(int time)
+{
+    this->timer=time;
 }

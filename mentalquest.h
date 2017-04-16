@@ -22,11 +22,13 @@ class MentalQuest : public QWidget
     public:
         explicit MentalQuest(QWidget *parent = 0);
         ~MentalQuest();
+        void initClock(bool neg=false,int count=5,int time=1000,int diap=100);
 
 
     public slots:
         void timeStop();
         void result();
+        void exit();
 
     private:
         Ui::MentalQuest *ui;
@@ -44,7 +46,12 @@ class Clock : public QLabel
 public:
     explicit Clock(QWidget *parent = 0);
     int sum;
+    void setNeg(bool neg);
+    void setNumCount(int count);
+    void setTimer(int time);
+    void setDiap(int diap);
     ~Clock();
+    QTimer* ptimer;
 
 signals:
    void stop();
@@ -55,9 +62,13 @@ public slots:
 
 
     private:
-        QTimer* ptimer;
-        int nums;
-        int cur;
+        int nums;// Количество чисел
+        int cur; // Текущий тик
+        int last; // Предыдущее случайное число
+        bool neg; // Негативные числа ?
+        int timer; // Период чисел
+        int diap; // Диапазон чисел
+        int negp; //Вероятность негативного числа
 };
 
 #endif // MENTALQUEST_H

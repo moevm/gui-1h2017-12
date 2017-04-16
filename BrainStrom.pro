@@ -9,11 +9,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    mentalquest.cpp
+    mentalquest.cpp \
+    mentalsett.cpp
 
 HEADERS  += mainwindow.h \
     mentalquest.h \
-    clock.h
+    clock.h \
+    mentalsett.h
 
 FORMS    += mainwindow.ui \
-    mentalquest.ui
+    mentalquest.ui \
+    mentalsett.ui
