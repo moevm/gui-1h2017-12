@@ -18,6 +18,7 @@ public:
 
 public slots:
     void mentalClicked();
+    void colorClicked();
 
 private:
     Ui::MainWindow *ui;

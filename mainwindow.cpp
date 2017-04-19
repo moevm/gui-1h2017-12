@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "mentalsett.h"
+#include "colorsett.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -11,10 +12,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QPushButton *mental = this->findChild<QPushButton *>("mental");
     QPushButton *exit = this->findChild<QPushButton *>("exit");
     QPushButton *help = this->findChild<QPushButton *>("help");
+    QPushButton *color = this->findChild<QPushButton *>("color");
 
     QObject::connect(mental,SIGNAL(clicked(bool)),this,SLOT(mentalClicked()));
     QObject::connect(exit,SIGNAL(clicked(bool)),this,SLOT(close()));
     QObject::connect(help,SIGNAL(clicked(bool)),this,SLOT());
+    QObject::connect(color,SIGNAL(clicked(bool)),this,SLOT(colorClicked()));
 }
 
 MainWindow::~MainWindow()
@@ -26,4 +29,9 @@ void MainWindow::mentalClicked()
 {
     MentalSett *sett=new MentalSett();
     sett->show();
+}
+void MainWindow::colorClicked()
+{
+   ColorSett *col=new ColorSett();
+   col->show();
 }

@@ -25,10 +25,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    mentalquest.cpp
+    mentalquest.cpp \
+    colorquest.cpp \
+    colorsett.cpp \
+    mentalsett.cpp
 
 HEADERS  += mainwindow.h \
-    mentalquest.h
+    mentalquest.h \
+    colorquest.h \
+    colorsett.h \
+    mentalsett.h
 
 FORMS    += mainwindow.ui \
-    mentalquest.ui
+    mentalquest.ui \
+    colorquest.ui \
+    colorsett.ui \
+    mentalsett.ui
