@@ -72,7 +72,7 @@ void MentalQuest::result()
         font.setPointSize(40);
     clock->setFont(font);
     QString ans=QString::number(clock->sum);
-    if(clock->sum==result.toInt()) clock->setText("<CENTER>Succses</CENTER>");
+    if(clock->sum==result.toInt()) clock->setText(QString::fromLocal8Bit("<CENTER>Верно!</CENTER>"));
     else clock->setText("<CENTER> Incorrect: " + ans + "</CENTER>");
 
     clock->setVisible(true);
