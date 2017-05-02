@@ -19,6 +19,7 @@ public:
 public slots:
     void mentalClicked();
     void colorClicked();
+    void ineqClicked();
 
 private:
     Ui::MainWindow *ui;

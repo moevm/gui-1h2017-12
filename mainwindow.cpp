@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "mentalsett.h"
 #include "colorsett.h"
+#include "inequalitysett.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -13,11 +14,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QPushButton *exit = this->findChild<QPushButton *>("exit");
     QPushButton *help = this->findChild<QPushButton *>("help");
     QPushButton *color = this->findChild<QPushButton *>("color");
+    QPushButton *ineq = this->findChild<QPushButton *>("ineq");
 
     QObject::connect(mental,SIGNAL(clicked(bool)),this,SLOT(mentalClicked()));
     QObject::connect(exit,SIGNAL(clicked(bool)),this,SLOT(close()));
     QObject::connect(help,SIGNAL(clicked(bool)),this,SLOT());
     QObject::connect(color,SIGNAL(clicked(bool)),this,SLOT(colorClicked()));
+    QObject::connect(ineq,SIGNAL(clicked(bool)),this,SLOT(ineqClicked()));
 }
 
 MainWindow::~MainWindow()
@@ -34,4 +37,9 @@ void MainWindow::colorClicked()
 {
    ColorSett *col=new ColorSett();
    col->show();
+}
+void MainWindow::ineqClicked()
+{
+   InequalitySett *ineq=new InequalitySett();
+   ineq->show();
 }

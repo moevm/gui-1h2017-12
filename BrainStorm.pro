@@ -28,16 +28,22 @@ SOURCES += main.cpp\
     mentalquest.cpp \
     colorquest.cpp \
     colorsett.cpp \
-    mentalsett.cpp
+    mentalsett.cpp \
+    inequalitysett.cpp \
+    inequalityquest.cpp
 
 HEADERS  += mainwindow.h \
     mentalquest.h \
     colorquest.h \
     colorsett.h \
-    mentalsett.h
+    mentalsett.h \
+    inequalitysett.h \
+    inequalityquest.h
 
 FORMS    += mainwindow.ui \
     mentalquest.ui \
     colorquest.ui \
     colorsett.ui \
-    mentalsett.ui
+    mentalsett.ui \
+    inequalitysett.ui \
+    inequalityquest.ui

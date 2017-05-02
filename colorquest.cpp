@@ -136,7 +136,6 @@ void ColorQuest::yes()
 
 void ColorQuest::no()
 {
-    qDebug() << c1 << " " << s2;
     if(s1!=c2)
     {
         sum++;
