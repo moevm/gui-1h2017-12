@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     colorsett.cpp \
     mentalsett.cpp \
     inequalitysett.cpp \
-    inequalityquest.cpp
+    inequalityquest.cpp \
+    statssqlhelper.cpp
 
 HEADERS  += mainwindow.h \
     mentalquest.h \
@@ -38,7 +39,8 @@ HEADERS  += mainwindow.h \
     colorsett.h \
     mentalsett.h \
     inequalitysett.h \
-    inequalityquest.h
+    inequalityquest.h \
+    statssqlhelper.h
 
 FORMS    += mainwindow.ui \
     mentalquest.ui \
@@ -46,4 +48,5 @@ FORMS    += mainwindow.ui \
     colorsett.ui \
     mentalsett.ui \
     inequalitysett.ui \
-    inequalityquest.ui
+    inequalityquest.ui \
+    statssqlhelper.ui

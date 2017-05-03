@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <statssqlhelper.h>
 
 namespace Ui {
 class MainWindow;
@@ -20,9 +20,11 @@ public slots:
     void mentalClicked();
     void colorClicked();
     void ineqClicked();
+    void statsClicked();
 
 private:
     Ui::MainWindow *ui;
+    StatsSqlHelper *sqlhelp;
 };
 
 #endif // MAINWINDOW_H
