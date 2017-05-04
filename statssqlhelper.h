@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QApplication>
+#include <statssqlhelper.h>
 #include <QtSql>
 #include <QTableView>
 

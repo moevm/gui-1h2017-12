@@ -26,6 +26,11 @@ MentalSett::MentalSett(QWidget *parent) :QWidget(parent),ui(new Ui::MentalSett)
     timerS=1000;
     diapS=100;
 
+
+    maxnum=numCount->maximum();
+    maxtimeS=timer->maximum()*500;
+    maxdiapS=pow(10,diap->maximum());
+
     QObject::connect(diap,SIGNAL(valueChanged(int)),this,SLOT(diapSet(int)));
     QObject::connect(numCount,SIGNAL(valueChanged(int)),this,SLOT(numsSet(int)));
     QObject::connect(timer,SIGNAL(valueChanged(int)),this,SLOT(timerSet(int)));
@@ -72,7 +77,13 @@ void MentalSett::goMental()
 {
     MentalQuest *quest=new MentalQuest();
     qDebug() << negS << " " << numsS << " " << timerS << " " << diapS;
-    quest->initClock(negS,numsS,timerS,diapS);
+    int ne;
+    if(negS) ne=1;
+    else ne=0;
+    float comp=numsS/maxnum+(1-timerS/maxtimeS)+diapS/maxdiapS+ne;
+    comp=(int)comp*25;
+    quest->initClock(negS,numsS,timerS,diapS,comp);
+    quest->sqlhelp=sqlhelp;
     quest->show();
     this->close();
 }

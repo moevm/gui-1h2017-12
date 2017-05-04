@@ -37,17 +37,20 @@ MainWindow::~MainWindow()
 void MainWindow::mentalClicked()
 {
     MentalSett *sett=new MentalSett();
+    sett->sqlhelp=sqlhelp;
     sett->show();
 }
 void MainWindow::colorClicked()
 {
-   ColorSett *col=new ColorSett();
-   col->show();
+   ColorSett *sett=new ColorSett();
+   sett->sqlhelp=sqlhelp;
+   sett->show();
 }
 void MainWindow::ineqClicked()
 {
-   InequalitySett *ineq=new InequalitySett();
-   ineq->show();
+   InequalitySett *sett=new InequalitySett();
+   sett->sqlhelp=sqlhelp;
+   sett->show();
 }
 
 

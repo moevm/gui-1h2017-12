@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QLabel>
 #include <QPalette>
+#include <statssqlhelper.h>
 #include <QPushButton>
 
 namespace Ui {
@@ -17,7 +18,8 @@ class ColorQuest : public QWidget
 public:
     explicit ColorQuest(QWidget *parent = 0);
     void game();
-    void init(int colors,int games);
+    void init(int colors,int games,int comp);
+    StatsSqlHelper *sqlhelp;
     ~ColorQuest();
 
 public slots:
@@ -30,6 +32,7 @@ private:
     QLabel *res;
     QPushButton *yesb;
     QPushButton *nob;
+    int comp;
     int s1;
     int c1;
     int s2;

@@ -5,6 +5,7 @@
 #include <QSlider>
 #include <QPushButton>
 #include <QCheckBox>
+#include <statssqlhelper.h>
 #include <QLabel>
 
 namespace Ui {
@@ -17,6 +18,7 @@ class InequalitySett : public QWidget
 
 public:
     explicit InequalitySett(QWidget *parent = 0);
+    StatsSqlHelper *sqlhelp;
     ~InequalitySett();
 
 
@@ -42,6 +44,9 @@ private:
     int compS; // Сложность выражений
     int timeS; // Время попытки
     int gamesS;// Количество игр
+    int maxcomp;
+    int maxtimeS;
+    int maxgames;
 };
 
 #endif // INEQUALITYSETT_H

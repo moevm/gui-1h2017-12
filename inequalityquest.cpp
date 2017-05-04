@@ -35,12 +35,13 @@ InequalityQuest::~InequalityQuest()
 }
 
 
-void InequalityQuest::init(bool neg,int comp,int time,int games)
+void InequalityQuest::init(bool neg,int comp,int time,int games,int compz)
 {
     this->negS=neg;
     this->compS=comp;
     this->timeS=time;
     this->games=games;
+    this->comp=compz;
 
     ptimer->start(timeS);
     game();
@@ -63,7 +64,10 @@ void InequalityQuest::game()
     {
         left->setText(QString::fromLocal8Bit("Ваш реузльтат:"));
         double b=(double) (100*sum)/games;
+
+        this->sqlhelp->addStats("Неравенства",comp,b);
         QString r=QString::number(b)+"%";
+
         right->setText(r);
 
         lowB->setEnabled(false);

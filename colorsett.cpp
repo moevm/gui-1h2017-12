@@ -18,6 +18,9 @@ ColorSett::ColorSett(QWidget *parent) :QWidget(parent),ui(new Ui::ColorSett)
     gamesv = this->findChild<QLabel *>("gamesv");
     QSlider *games = this->findChild<QSlider *>("games");
 
+    maxCol=colors->maximum();
+    maxGame=games->maximum();
+
     QObject::connect(colors,SIGNAL(valueChanged(int)),this,SLOT(colorsSet(int)));
     QObject::connect(games,SIGNAL(valueChanged(int)),this,SLOT(gamesSet(int)));
 
@@ -46,7 +49,10 @@ void ColorSett::gamesSet(int n)
 void ColorSett::goColor()
 {
     ColorQuest *col=new ColorQuest();
-    col->init(colors,games);
+    float comp=colors/maxCol+games/maxGame;
+    comp=(int)comp*50;
+    col->init(colors,games,comp);
+    col->sqlhelp=sqlhelp;
     col->show();
     this->close();
     this->~ColorSett();

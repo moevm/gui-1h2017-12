@@ -28,12 +28,13 @@ MentalQuest::~MentalQuest()
     delete ui;
 }
 
-void MentalQuest::initClock(bool neg, int count, int time, int diap)
+void MentalQuest::initClock(bool neg, int count, int time, int diap,int comp)
 {
     clock->setNeg(neg);
     clock->setTimer(time);
     clock->setDiap(diap);
     clock->setNumCount(count);
+    this->comp=comp;
     clock->ptimer->start(time-1);
 }
 
@@ -72,8 +73,14 @@ void MentalQuest::result()
         font.setPointSize(40);
     clock->setFont(font);
     QString ans=QString::number(clock->sum);
-    if(clock->sum==result.toInt()) clock->setText(QString::fromLocal8Bit("<CENTER>Верно!</CENTER>"));
-    else clock->setText("<CENTER> Incorrect: " + ans + "</CENTER>");
+
+    double b=(double) (100*clock->sum)/result.toInt();
+
+
+    this->sqlhelp->addStats("Уследи за цветом",comp,b);
+
+    QString r="Ваша точность: "+QString::number(b)+"%";
+    clock->setText(r);
 
     clock->setVisible(true);
 }

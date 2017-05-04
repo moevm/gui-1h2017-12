@@ -6,6 +6,7 @@
 #include <QSlider>
 #include <QCheckBox>
 #include <QPushButton>
+#include <statssqlhelper.h>
 #include <QString>
 
 namespace Ui {
@@ -18,6 +19,7 @@ class MentalSett : public QWidget
 
 public:
     explicit MentalSett(QWidget *parent = 0);
+    StatsSqlHelper *sqlhelp;
     ~MentalSett();
 
 
@@ -43,6 +45,11 @@ private:
     int timerS; // Период чисел
     int diapS; // Диапазон чисел
     int numsS;// Количество чисел
+
+
+    int maxnum;
+    int maxtimeS;
+    int maxdiapS;
 };
 
 #endif // MENTALSETT_H

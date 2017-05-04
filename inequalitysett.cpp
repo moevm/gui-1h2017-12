@@ -27,6 +27,10 @@ InequalitySett::InequalitySett(QWidget *parent) :
     compS=5;
     timeS=10000;
 
+    maxcomp = comp->maximum();
+    maxgames = games->maximum();
+    maxtimeS = time->maximum()*1000;
+
     QObject::connect(games,SIGNAL(valueChanged(int)),this,SLOT(gamesSet(int)));
     QObject::connect(comp,SIGNAL(valueChanged(int)),this,SLOT(compSet(int)));
     QObject::connect(time,SIGNAL(valueChanged(int)),this,SLOT(timeSet(int)));
@@ -71,7 +75,13 @@ void InequalitySett::timeSet(int n)
 void InequalitySett::goIneq()
 {
     InequalityQuest *ineq = new InequalityQuest();
-    ineq->init(negS,compS,timeS,gamesS);
+    int ne;
+    if(negS) ne=1;
+    else ne=0;
+    float comp=compS/maxcomp+(1-timeS/maxtimeS)+gamesS/maxgames+ne;
+    comp=(int)comp*25;
+    ineq->init(negS,compS,timeS,gamesS,comp);
+    ineq->sqlhelp=sqlhelp;
     ineq->show();
     this->close();
 }

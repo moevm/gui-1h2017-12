@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QLabel>
 #include <QSlider>
+#include <statssqlhelper.h>
 #include <QPushButton>
 
 namespace Ui {
@@ -16,6 +17,7 @@ class ColorSett : public QWidget
 
 public:
     explicit ColorSett(QWidget *parent = 0);
+    StatsSqlHelper *sqlhelp;
     ~ColorSett();
 
 public slots:
@@ -29,6 +31,8 @@ private:
     QLabel *gamesv;
     int colors;
     int games;
+    int maxCol;
+    int maxGame;
 };
 
 #endif // COLORSETT_H

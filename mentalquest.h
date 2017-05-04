@@ -7,6 +7,7 @@
 #include <QDateTime>
 #include <QTextEdit>
 #include <QPushButton>
+#include <statssqlhelper.h>
 #include "QTime"
 
 class Clock;
@@ -22,7 +23,8 @@ class MentalQuest : public QWidget
     public:
         explicit MentalQuest(QWidget *parent = 0);
         ~MentalQuest();
-        void initClock(bool neg=false,int count=5,int time=1000,int diap=100);
+        StatsSqlHelper *sqlhelp;
+        void initClock(bool neg=false,int count=5,int time=1000,int diap=100,int comp=50);
 
 
     public slots:
@@ -36,6 +38,7 @@ class MentalQuest : public QWidget
         QTextEdit *answer;
         QPushButton *ansbut;
         Clock *clock;
+        int comp;
 
 };
 
@@ -46,6 +49,7 @@ class Clock : public QLabel
 public:
     explicit Clock(QWidget *parent = 0);
     int sum;
+    StatsSqlHelper *sqlhelp;
     void setNeg(bool neg);
     void setNumCount(int count);
     void setTimer(int time);

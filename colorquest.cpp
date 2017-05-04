@@ -32,10 +32,11 @@ ColorQuest::~ColorQuest()
     delete ui;
 }
 
-void ColorQuest::init(int colors, int games)
+void ColorQuest::init(int colors, int games,int comp)
 {
     this->colors=colors;
     this->games=games;
+    this->comp=comp;
     game();
 }
 
@@ -124,6 +125,9 @@ void ColorQuest::yes()
         labelColor(right,3);
         left->setText(QString::fromLocal8Bit("Ваш реузльтат:"));
         double b=(double) (100*sum)/games;
+
+        this->sqlhelp->addStats("Уследи за цветом",comp,b);
+
         QString r=QString::number(b);
         right->setText(r);
         yesb->setEnabled(false);
@@ -149,6 +153,9 @@ void ColorQuest::no()
         labelColor(right,3);
         left->setText(QString::fromLocal8Bit("Ваш реузльтат:"));
         double b=(double) (100*sum)/games;
+
+        this->sqlhelp->addStats("Уследи за цветом",comp,b);
+
         QString r=QString::number(b)+"%";
         right->setText(r);
         yesb->setEnabled(false);

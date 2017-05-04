@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QPalette>
 #include <QPushButton>
+#include <statssqlhelper.h>
 #include <QTimer>
 
 namespace Ui {
@@ -17,8 +18,9 @@ class InequalityQuest : public QWidget
 
 public:
     explicit InequalityQuest(QWidget *parent = 0);
-    void init(bool neg,int comp,int time,int games);
+    void init(bool neg,int comp,int time,int games,int compZ);
     void slotUpdateDateTime();
+    StatsSqlHelper *sqlhelp;
     ~InequalityQuest();
 
 private slots:
@@ -32,6 +34,7 @@ private:
     QLabel *left;
     QLabel *right;
     QLabel *res;
+    int comp;
     QPushButton *moreB;
     QPushButton *lowB;
     QPushButton *eqB;
