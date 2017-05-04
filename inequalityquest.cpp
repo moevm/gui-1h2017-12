@@ -145,6 +145,7 @@ float InequalityQuest::labelEvaq(QLabel *l, int comp)
     s+=QString::number(num);
 
     bool b=false;
+    bool b1=false;
     if(oper==0) result+=num;
     for(int i=0;i<oper;i++)
     {
@@ -159,6 +160,7 @@ float InequalityQuest::labelEvaq(QLabel *l, int comp)
 
         if(p<=20)
         {
+            if(num1<0) b1=true;
             s+="/";
             sum=sum/num1;
             b=true;
@@ -180,13 +182,18 @@ float InequalityQuest::labelEvaq(QLabel *l, int comp)
         }
         if(p>80)
         {
+            if(num1<0) b1=true;
             s+="*";
             sum=sum*num1;
             b=true;
             if(s[s.length()-2]==')') b=false;
             else s.insert(s.length()-sign-1,"(");
         }
-        s+=QString::number(num1);
+        if(b1){
+            s+="("+QString::number(num1)+")";
+            b1=false;
+        }
+        else s+=QString::number(num1);
         if(b)
         {
             s+=")";
