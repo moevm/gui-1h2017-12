@@ -109,6 +109,7 @@ void StatsSqlHelper::showStats()
 
 
     view->setModel(model);
+    //view->
     view->hideColumn(0);
 
     view->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);

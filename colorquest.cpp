@@ -126,9 +126,9 @@ void ColorQuest::yes()
         left->setText(QString::fromLocal8Bit("Ваш реузльтат:"));
         double b=(double) (100*sum)/games;
 
-        this->sqlhelp->addStats("Уследи за цветом",comp,b);
+        this->sqlhelp->addStats(QString::fromLocal8Bit("Уследи за цветом"),comp,b);
 
-        QString r=QString::number(b);
+        QString r=QString::number((int)b)+"%";
         right->setText(r);
         yesb->setEnabled(false);
         yesb->setVisible(false);
@@ -154,7 +154,7 @@ void ColorQuest::no()
         left->setText(QString::fromLocal8Bit("Ваш реузльтат:"));
         double b=(double) (100*sum)/games;
 
-        this->sqlhelp->addStats("Уследи за цветом",comp,b);
+        this->sqlhelp->addStats(QString::fromLocal8Bit("Уследи за цветом"),comp,b);
 
         QString r=QString::number(b)+"%";
         right->setText(r);

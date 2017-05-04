@@ -65,7 +65,7 @@ void InequalityQuest::game()
         left->setText(QString::fromLocal8Bit("Ваш реузльтат:"));
         double b=(double) (100*sum)/games;
 
-        this->sqlhelp->addStats("Неравенства",comp,b);
+        this->sqlhelp->addStats(QString::fromLocal8Bit("Неравенства"),comp,b);
         QString r=QString::number(b)+"%";
 
         right->setText(r);

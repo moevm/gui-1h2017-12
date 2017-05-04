@@ -70,16 +70,21 @@ void MentalQuest::result()
     answer->setEnabled(false);
 
     QFont font = clock->font();
-        font.setPointSize(40);
+        font.setPointSize(33);
     clock->setFont(font);
     QString ans=QString::number(clock->sum);
 
-    double b=(double) (100*clock->sum)/result.toInt();
+    double b=(double) (100*(clock->sum-result.toInt()))/clock->sum;
 
+    b=abs(100-b);
 
-    this->sqlhelp->addStats("Уследи за цветом",comp,b);
+    if(b>100) b=b-100;
 
-    QString r="Ваша точность: "+QString::number(b)+"%";
+    if(b>100) b=0;
+
+    this->sqlhelp->addStats(QString::fromLocal8Bit("Ментальная арифметика"),comp,b);
+
+    QString r=QString::fromLocal8Bit("Ваша точность: ")+QString::number((int)b)+"%";
     clock->setText(r);
 
     clock->setVisible(true);
