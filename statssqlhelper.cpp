@@ -38,6 +38,9 @@ void StatsSqlHelper::init()
           qDebug() << a_query.lastError();
       else
           qDebug() << "Table created!";
+
+      this->selectAll();
+
 }
 
 void StatsSqlHelper::deleteStats(int id)
@@ -78,10 +81,6 @@ void StatsSqlHelper::selectAll()
           return;
     }
     QSqlRecord rec = a_query.record();
-    int nameCol=0;
-    int complCol=0;
-    int resCol=0;
-    int idCol=0;
     int id;
     QString n,c,r;
     QString address = "";
@@ -97,8 +96,6 @@ void StatsSqlHelper::selectAll()
       c = a_query.value(complCol).toString();
       r = a_query.value(resCol).toString();
       id = a_query.value(idCol).toInt();
-
-      qDebug() << id << " " << n << " "  << c << " " << r;
     }
 }
 
@@ -109,12 +106,26 @@ void StatsSqlHelper::showStats()
     model->select();
     model->setEditStrategy(QSqlTableModel::OnFieldChange);
 
+    QSortFilterProxyModel *sort_filter = new QSortFilterProxyModel(this);
+    sort_filter->setSourceModel(model);
 
-    view->setModel(model);
-    //view->
+    sort_filter->sort(this->col,Qt::SortOrder::DescendingOrder);
+
+    view->setModel(sort_filter);
+
     view->hideColumn(0);
+
+    QHeaderView *h = view->horizontalHeader();
+
+    view->setHorizontalHeader(h);
 
     view->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
 
     this->show();
+}
+
+void StatsSqlHelper::setCol(int col)
+{
+    this->col=col+1;
+    this->showStats();
 }

@@ -29,7 +29,16 @@ private:
     Ui::StatsSqlHelper *ui;
     QSqlDatabase m_db;
     QSqlTableModel *model;
+    int nameCol=0;
+    int complCol=0;
+    int resCol=0;
+    int idCol=0;
+
+    int col=0;
     QTableView *view;
+
+public slots:
+    void setCol(int col);
 };
 
 #endif // STATSSQLHELPER_H
