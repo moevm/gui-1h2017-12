@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     mentalsett.cpp \
     inequalitysett.cpp \
     inequalityquest.cpp \
-    statssqlhelper.cpp
+    statssqlhelper.cpp \
+    helpwin.cpp
 
 HEADERS  += mainwindow.h \
     mentalquest.h \
@@ -41,7 +42,8 @@ HEADERS  += mainwindow.h \
     mentalsett.h \
     inequalitysett.h \
     inequalityquest.h \
-    statssqlhelper.h
+    statssqlhelper.h \
+    helpwin.h
 
 FORMS    += mainwindow.ui \
     mentalquest.ui \
@@ -50,7 +52,8 @@ FORMS    += mainwindow.ui \
     mentalsett.ui \
     inequalitysett.ui \
     inequalityquest.ui \
-    statssqlhelper.ui
+    statssqlhelper.ui \
+    helpwin.ui
 
 RESOURCES += \
     imgfiles.qrc \

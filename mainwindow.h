@@ -21,6 +21,7 @@ public slots:
     void colorClicked();
     void ineqClicked();
     void statsClicked();
+    void helpClicked();
 
 private:
     Ui::MainWindow *ui;

@@ -3,6 +3,7 @@
 #include "mentalsett.h"
 #include "colorsett.h"
 #include "inequalitysett.h"
+#include "helpwin.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -33,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QPushButton *stats = this->findChild<QPushButton *>("stats");
     QObject::connect(mental,SIGNAL(clicked(bool)),this,SLOT(mentalClicked()));
     QObject::connect(exit,SIGNAL(clicked(bool)),this,SLOT(close()));
-    QObject::connect(help,SIGNAL(clicked(bool)),this,SLOT());
+    QObject::connect(help,SIGNAL(clicked(bool)),this,SLOT(helpClicked()));
     QObject::connect(color,SIGNAL(clicked(bool)),this,SLOT(colorClicked()));
     QObject::connect(ineq,SIGNAL(clicked(bool)),this,SLOT(ineqClicked()));
     QObject::connect(stats,SIGNAL(clicked(bool)),this,SLOT(statsClicked()));
@@ -67,4 +68,11 @@ void MainWindow::ineqClicked()
 void MainWindow::statsClicked()
 {
     sqlhelp->showStats();
+}
+
+
+void MainWindow::helpClicked()
+{
+    helpwin *hw = new helpwin();
+    hw->show();
 }
