@@ -6,6 +6,7 @@ InequalityQuest::InequalityQuest(QWidget *parent) :
     ui(new Ui::InequalityQuest)
 {
     ui->setupUi(this);
+    this->setWindowTitle(QString::fromLocal8Bit("Неравенства"));
 
     sum=0;
     cur=0;
@@ -54,11 +55,8 @@ void InequalityQuest::game()
     if(cur<=games)
     {
         int c = this->compS;
-
         leftC=labelEvaq(left,c);
-        qDebug() << leftC;
         rightC=labelEvaq(right,c);
-        qDebug() << rightC;
     }
     else
     {

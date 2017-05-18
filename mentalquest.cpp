@@ -7,8 +7,11 @@ MentalQuest::MentalQuest(QWidget *parent) : QWidget(parent)
     this->ui=new Ui::MentalQuest;
     ui->setupUi(this);
 
+    this->setWindowTitle(QString::fromLocal8Bit("Ментальная арифметика"));
+
     ansbut = this->findChild<QPushButton *>("ansbut");
     QPushButton *exit= this->findChild<QPushButton *>("exit");
+
     anslabel = this->findChild<QLabel *>("anslabel");
     answer = this->findChild<QTextEdit *>("answer");
 
@@ -112,7 +115,7 @@ void Clock::slotUpdateDateTime()
     }
     last=rand; //Запомнили предыдущее число
     if((neg)&&(p<negp)) rand=-rand; //С вероятностью отрицаем число
-        qDebug() << rand;
+
     sum=sum+rand;
     QString str = QString::number(rand);
     setText("<CENTER>" + str + "</CENTER>");

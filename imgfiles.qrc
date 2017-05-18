@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/images/foto">
+        <file>BrainLogo1.png</file>
+        <file>BSlabel.png</file>
+        <file alias="ok">Button-Ok-icon.png</file>
+        <file alias="del">Button-Delete-icon.png</file>
+        <file>mat.png</file>
+        <file>Graphics-Painting-icon.png</file>
+        <file>justice.png</file>
+        <file>door.png</file>
+        <file>Help-icon.png</file>
+        <file>stat-icon.png</file>
+        <file>statistics-market-icon.png</file>
+        <file>Button-Delete-icon (1).png</file>
+        <file>Button-Previous-icon.png</file>
+    </qresource>
+</RCC>

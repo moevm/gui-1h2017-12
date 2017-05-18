@@ -6,6 +6,7 @@ MentalSett::MentalSett(QWidget *parent) :QWidget(parent),ui(new Ui::MentalSett)
 {
     ui->setupUi(this);
 
+    this->setWindowTitle(QString::fromLocal8Bit("Ментальная арифметика"));
 
     go= this->findChild<QPushButton *>("start");
     QPushButton *back= this->findChild<QPushButton *>("back");
@@ -76,7 +77,6 @@ void MentalSett::negCheck(bool ch)
 void MentalSett::goMental()
 {
     MentalQuest *quest=new MentalQuest();
-    qDebug() << negS << " " << numsS << " " << timerS << " " << diapS;
     int ne;
     if(negS) ne=1;
     else ne=0;

@@ -1,0 +1,89 @@
+QPushButton#okButton { color: gray }
+QPushButton { 
+	background-color: white; 
+	border: 2px groove gray;
+	border-radius: 10px;
+	font: bold 14px;
+	padding: 6px;
+}
+QWidget{
+	background-color: white; 
+	
+}
+QFrame#gridLayout QLabel
+{
+	font: bold 15px;
+}
+
+QPushButton:hover {
+	border: 4px groove gray;
+}
+QPushButton#start
+{
+	border: 0px;
+}
+QPushButton#back
+{
+	border: 0px;
+}
+QPushButton#start:hover
+{
+	border: 4px groove gray;
+	border-radius: 25px;
+}
+QPushButton#back:hover
+{
+	border: 4px groove gray;
+	border-radius: 25px;
+}
+QPushButton#yes
+{
+	border: 0px;
+}
+QPushButton#no
+{
+	border: 0px;
+}
+QPushButton#yes:hover
+{
+	border: 4px groove gray;
+}
+QPushButton#no:hover
+{
+	border: 4px groove gray;
+}
+QTableView {
+    border: 2px solid #733600;
+    border-radius: 4px;
+    background-color: #fff;
+    gridline-color: #777;
+    selection-background-color: #F9BC86;
+    color:#333;
+    font-size:12px;
+ }
+ QHeaderView {
+    background-color: #fff;
+	font: Impact #32313A;
+    font-size:16px;
+}
+QHeaderView::section:horizontal {
+    color: #fff;
+    border-style: solid;
+    background-color: qlineargradient( x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #9A5D27, stop: 1 #5A1D00);
+ }
+ 
+ QSlider::groove:horizontal {
+    border: 0px solid transparent;
+    height: 8px;
+    background: #eeeeee;
+    margin: 2px 0;
+}
+
+QSlider::handle:horizontal {
+    background-color: #BC7F24;
+    height: 10px;
+    width: 12px;
+    border: 0px solid transparent;
+    margin: -2px 0;
+    border-radius: 6px;
+}

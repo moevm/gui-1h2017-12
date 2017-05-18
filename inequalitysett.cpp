@@ -8,6 +8,8 @@ InequalitySett::InequalitySett(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->setWindowTitle(QString::fromLocal8Bit("Неравенства"));
+
     go= this->findChild<QPushButton *>("start");
     QPushButton *back= this->findChild<QPushButton *>("back");
 

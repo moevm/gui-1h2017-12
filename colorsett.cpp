@@ -8,6 +8,8 @@ ColorSett::ColorSett(QWidget *parent) :QWidget(parent),ui(new Ui::ColorSett)
 
     ui->setupUi(this);
 
+    this->setWindowTitle(QString::fromLocal8Bit("Уследи за цветом"));
+
     go= this->findChild<QPushButton *>("start");
     QPushButton *back= this->findChild<QPushButton *>("back");
 
@@ -49,8 +51,9 @@ void ColorSett::gamesSet(int n)
 void ColorSett::goColor()
 {
     ColorQuest *col=new ColorQuest();
-    float comp=colors/maxCol+games/maxGame;
-    comp=(int)comp*50;
+    float comp=((float)colors/maxCol+(float)games/maxGame)*50;
+    comp=(int)comp;
+    qDebug() << comp;
     col->init(colors,games,comp);
     col->sqlhelp=sqlhelp;
     col->show();

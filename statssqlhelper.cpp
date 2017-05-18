@@ -8,6 +8,8 @@ StatsSqlHelper::StatsSqlHelper(QWidget *parent) : QWidget(parent),
 {
     ui->setupUi(this);    
     view = this->findChild<QTableView *>("tableView");
+
+    this->setWindowTitle(QString::fromLocal8Bit("Статистика"));
 }
 
 StatsSqlHelper::~StatsSqlHelper()

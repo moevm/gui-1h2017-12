@@ -6,56 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>441</width>
-    <height>300</height>
+    <width>543</width>
+    <height>331</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label_8">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>10</y>
-     <width>161</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Настройки игры</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="back">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>250</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Назад</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>60</y>
-     <width>421</width>
+     <y>80</y>
+     <width>521</width>
      <height>171</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="3" column="0">
      <widget class="QLabel" name="label_4">
+      <property name="font">
+       <font>
+        <family>Segoe UI Black</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Наличие негативных чисел</string>
       </property>
@@ -63,6 +40,12 @@
     </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <family>Segoe UI Black</family>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Сложность выражений</string>
       </property>
@@ -70,6 +53,24 @@
     </item>
     <item row="0" column="1">
      <widget class="QSlider" name="comp">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>240</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>240</width>
+        <height>16777215</height>
+       </size>
+      </property>
       <property name="minimum">
        <number>1</number>
       </property>
@@ -99,15 +100,20 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Количество игр</string>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="1">
      <widget class="QSlider" name="games">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>240</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="minimum">
        <number>2</number>
       </property>
@@ -136,6 +142,14 @@
     </item>
     <item row="0" column="2">
      <widget class="QLabel" name="compv">
+      <property name="font">
+       <font>
+        <family>Segoe UI Black</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>5</string>
       </property>
@@ -143,6 +157,14 @@
     </item>
     <item row="1" column="2">
      <widget class="QLabel" name="gamesv">
+      <property name="font">
+       <font>
+        <family>Segoe UI Black</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>5</string>
       </property>
@@ -150,6 +172,14 @@
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <family>Segoe UI Black</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Время на ответ ( в секундах)</string>
       </property>
@@ -157,6 +187,14 @@
     </item>
     <item row="2" column="2">
      <widget class="QLabel" name="timev">
+      <property name="font">
+       <font>
+        <family>Segoe UI Black</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>10</string>
       </property>
@@ -164,6 +202,18 @@
     </item>
     <item row="2" column="1">
      <widget class="QSlider" name="time">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>240</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="minimum">
        <number>5</number>
       </property>
@@ -206,22 +256,234 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <family>Segoe UI Black</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Количество игр</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QPushButton" name="start">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>250</y>
-     <width>75</width>
-     <height>23</height>
+     <y>270</y>
+     <width>61</width>
+     <height>51</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>Go</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="imgfiles.qrc">
+     <normaloff>:/images/foto/Button-Previous-icon.png</normaloff>:/images/foto/Button-Previous-icon.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>45</width>
+     <height>45</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="back">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>270</y>
+     <width>61</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="imgfiles.qrc">
+     <normaloff>:/images/foto/Button-Delete-icon (1).png</normaloff>:/images/foto/Button-Delete-icon (1).png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>45</width>
+     <height>45</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>10</y>
+     <width>341</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="palette">
+    <palette>
+     <active>
+      <colorrole role="WindowText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>50</red>
+         <green>49</green>
+         <blue>58</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Text">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>192</red>
+         <green>135</green>
+         <blue>50</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ButtonText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>192</red>
+         <green>135</green>
+         <blue>50</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ToolTipText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>192</red>
+         <green>135</green>
+         <blue>50</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </active>
+     <inactive>
+      <colorrole role="WindowText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>50</red>
+         <green>49</green>
+         <blue>58</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Text">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>192</red>
+         <green>135</green>
+         <blue>50</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ButtonText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>192</red>
+         <green>135</green>
+         <blue>50</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ToolTipText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>192</red>
+         <green>135</green>
+         <blue>50</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </inactive>
+     <disabled>
+      <colorrole role="WindowText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>120</red>
+         <green>120</green>
+         <blue>120</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Text">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>120</red>
+         <green>120</green>
+         <blue>120</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ButtonText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>120</red>
+         <green>120</green>
+         <blue>120</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ToolTipText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>192</red>
+         <green>135</green>
+         <blue>50</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </disabled>
+    </palette>
+   </property>
+   <property name="font">
+    <font>
+     <family>Impact</family>
+     <pointsize>30</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+     <stylestrategy>PreferAntialias</stylestrategy>
+    </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>15</number>
+   </property>
+   <property name="midLineWidth">
+    <number>6</number>
+   </property>
+   <property name="text">
+    <string>Настройки игры</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="imgfiles.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -11,6 +11,17 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->setWindowTitle("BrainStorm");
+
+     QFile styleFile(":/styles/default/default.css");
+
+        if( styleFile.open(QFile::ReadOnly) ) {
+                QString styleSheet = QLatin1String(styleFile.readAll());
+            qApp->setStyleSheet(styleSheet);
+        }
+        else
+            qDebug() << "Style can't be loaded";
+
     sqlhelp = new StatsSqlHelper();
     sqlhelp->init();
 
@@ -20,7 +31,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QPushButton *color = this->findChild<QPushButton *>("color");
     QPushButton *ineq = this->findChild<QPushButton *>("ineq");
     QPushButton *stats = this->findChild<QPushButton *>("stats");
-
     QObject::connect(mental,SIGNAL(clicked(bool)),this,SLOT(mentalClicked()));
     QObject::connect(exit,SIGNAL(clicked(bool)),this,SLOT(close()));
     QObject::connect(help,SIGNAL(clicked(bool)),this,SLOT());

@@ -8,6 +8,8 @@ ColorQuest::ColorQuest(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->setWindowTitle(QString::fromLocal8Bit("Уследи за цветом"));
+
     sum=0;
     cur=0;
 
