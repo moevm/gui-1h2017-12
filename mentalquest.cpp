@@ -1,6 +1,5 @@
 #include "mentalquest.h"
 #include "ui_mentalquest.h"
-#include <QDebug>
 
 MentalQuest::MentalQuest(QWidget *parent) : QWidget(parent)
 {

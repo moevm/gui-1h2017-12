@@ -1,6 +1,5 @@
 #include "colorquest.h"
 #include "ui_colorquest.h"
-#include <QDebug>
 
 ColorQuest::ColorQuest(QWidget *parent) :
     QWidget(parent),

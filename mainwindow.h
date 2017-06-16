@@ -22,6 +22,7 @@ public slots:
     void ineqClicked();
     void statsClicked();
     void helpClicked();
+    void cardClicked();
 
 private:
     Ui::MainWindow *ui;

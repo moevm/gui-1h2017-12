@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>496</width>
-    <height>522</height>
+    <height>588</height>
    </rect>
   </property>
   <property name="palette">
@@ -68,7 +68,7 @@
       <x>10</x>
       <y>10</y>
       <width>471</width>
-      <height>437</height>
+      <height>496</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -326,6 +326,26 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="stats_2">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>Карточки Абакус</string>
+         </property>
+         <property name="icon">
+          <iconset resource="imgfiles.qrc">
+           <normaloff>:/images/foto/card.png</normaloff>:/images/foto/card.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>45</width>
+           <height>45</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="stats">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
@@ -414,5 +434,25 @@
  <resources>
   <include location="imgfiles.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>stats_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>cardClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>310</x>
+     <y>395</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>455</x>
+     <y>386</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>cardClicked()</slot>
+ </slots>
 </ui>

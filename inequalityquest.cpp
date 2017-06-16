@@ -1,6 +1,6 @@
 #include "inequalityquest.h"
 #include "ui_inequalityquest.h"
-#include <QDebug>
+
 InequalityQuest::InequalityQuest(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::InequalityQuest)
@@ -185,7 +185,7 @@ float InequalityQuest::labelEvaq(QLabel *l, int comp)
         if(p>80)
         {
             if(num1<0) b1=true;
-            s+="*";
+            s+="x";
             sum=sum*num1;
             b=true;
             if(s[s.length()-2]==')') b=false;

@@ -4,7 +4,7 @@
 #include "colorsett.h"
 #include "inequalitysett.h"
 #include "helpwin.h"
-#include <QDebug>
+#include "cardsett.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,8 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
                 QString styleSheet = QLatin1String(styleFile.readAll());
             qApp->setStyleSheet(styleSheet);
         }
-        else
-            qDebug() << "Style can't be loaded";
 
     sqlhelp = new StatsSqlHelper();
     sqlhelp->init();
@@ -75,4 +73,11 @@ void MainWindow::helpClicked()
 {
     helpwin *hw = new helpwin();
     hw->show();
+}
+
+
+void MainWindow::cardClicked()
+{
+    CardSett *cq = new CardSett();
+    cq->show();
 }

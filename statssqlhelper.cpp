@@ -1,8 +1,8 @@
 #include "statssqlhelper.h"
 #include "ui_statssqlhelper.h"
-#include <QDebug>
 #include <QHBoxLayout>
 #include <QHeaderView>
+
 StatsSqlHelper::StatsSqlHelper(QWidget *parent) : QWidget(parent),
     ui(new Ui::StatsSqlHelper)
 {
@@ -23,21 +23,16 @@ void StatsSqlHelper::init()
 
       if (!m_db.open())
       {
-         qDebug() << "Error: connection with database fail";
       }
       else
       {
-         qDebug() << "Database: connection ok";
       }
 
       QSqlQuery a_query;
       // DDL query
       a_query.prepare( "CREATE TABLE IF NOT EXISTS stats (id INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT, quest_name VARCHAR(30), complexity VARCHAR(10), result VARCHAR(10))" );
 
-      if( !a_query.exec() )
-          qDebug() << a_query.lastError();
-      else
-          qDebug() << "Table created!";
+      if( !a_query.exec() ){}
 
       this->selectAll();
 
@@ -50,7 +45,6 @@ void StatsSqlHelper::deleteStats(int id)
     query.bindValue(":id", id);
     bool b = query.exec();
 
-    if(!b) qDebug() << "remove error: " << query.lastError();
 }
 
 void StatsSqlHelper::addStats(QString questname, int complexity, int result)
@@ -68,7 +62,6 @@ void StatsSqlHelper::addStats(QString questname, int complexity, int result)
 
     bool b = a_query.exec(str_insert);
 
-    if(!b) qDebug() << "Insert err";
 }
 
 
@@ -77,7 +70,6 @@ void StatsSqlHelper::selectAll()
     QSqlQuery a_query;
     if (!a_query.exec("SELECT * FROM stats"))
     {
-          qDebug() << "Даже селект не получается, я пас.";
           return;
     }
     QSqlRecord rec = a_query.record();
@@ -106,6 +98,10 @@ void StatsSqlHelper::showStats()
     model->select();
     model->setEditStrategy(QSqlTableModel::OnFieldChange);
 
+    model->setHeaderData(1,Qt::Horizontal, QString::fromLocal8Bit("Название задания"));
+    model->setHeaderData(2,Qt::Horizontal, QString::fromLocal8Bit("Сложность"));
+    model->setHeaderData(3,Qt::Horizontal, QString::fromLocal8Bit("Результат"));
+
     QSortFilterProxyModel *sort_filter = new QSortFilterProxyModel(this);
     sort_filter->setSourceModel(model);
 
@@ -117,9 +113,9 @@ void StatsSqlHelper::showStats()
 
     QHeaderView *h = view->horizontalHeader();
 
-    view->setHorizontalHeader(h);
+    h->setSectionResizeMode(1, QHeaderView::Stretch);
 
-    view->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    view->setHorizontalHeader(h);
 
     this->show();
 }
@@ -128,4 +124,34 @@ void StatsSqlHelper::setCol(int col)
 {
     this->col=col+1;
     this->showStats();
+}
+
+void StatsSqlHelper::SlotDel()
+{
+  int row;
+  QItemSelectionModel    *selectModel;
+  QModelIndexList         indexes;
+  QModelIndex             index;
+
+    // Узнаем выделенную строку
+    selectModel = view->selectionModel();
+    indexes = selectModel->selectedIndexes();
+
+    foreach(index, indexes)
+    {
+        QString str;
+        row = index.row();
+        if (!model->removeRows(row,1))
+        {
+            str = model->lastError().text();
+            break;
+        }
+        else
+        {
+            view->setRowHidden(row, true);
+        }
+    }
+
+    this->update();
+
 }

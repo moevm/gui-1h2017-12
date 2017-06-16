@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql opengl
+LIBS += -lglu32 -lopengl32
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -33,7 +34,10 @@ SOURCES += main.cpp\
     inequalitysett.cpp \
     inequalityquest.cpp \
     statssqlhelper.cpp \
-    helpwin.cpp
+    helpwin.cpp \
+    paintwidget.cpp \
+    cardquest.cpp \
+    cardsett.cpp
 
 HEADERS  += mainwindow.h \
     mentalquest.h \
@@ -43,7 +47,10 @@ HEADERS  += mainwindow.h \
     inequalitysett.h \
     inequalityquest.h \
     statssqlhelper.h \
-    helpwin.h
+    helpwin.h \
+    paintwidget.h \
+    cardquest.h \
+    cardsett.h
 
 FORMS    += mainwindow.ui \
     mentalquest.ui \
@@ -53,7 +60,9 @@ FORMS    += mainwindow.ui \
     inequalitysett.ui \
     inequalityquest.ui \
     statssqlhelper.ui \
-    helpwin.ui
+    helpwin.ui \
+    cardquest.ui \
+    cardsett.ui
 
 RESOURCES += \
     imgfiles.qrc \

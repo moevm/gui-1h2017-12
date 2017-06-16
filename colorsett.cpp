@@ -1,7 +1,6 @@
 #include "colorsett.h"
 #include "ui_colorsett.h"
 #include "colorquest.h"
-#include <QDebug>
 
 ColorSett::ColorSett(QWidget *parent) :QWidget(parent),ui(new Ui::ColorSett)
 {
@@ -53,7 +52,6 @@ void ColorSett::goColor()
     ColorQuest *col=new ColorQuest();
     float comp=((float)colors/maxCol+(float)games/maxGame)*50;
     comp=(int)comp;
-    qDebug() << comp;
     col->init(colors,games,comp);
     col->sqlhelp=sqlhelp;
     col->show();

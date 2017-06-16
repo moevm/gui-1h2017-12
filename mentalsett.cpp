@@ -1,7 +1,8 @@
 #include "mentalsett.h"
 #include "ui_mentalsett.h"
 #include "mentalquest.h"
-#include <qDebug>
+
+
 MentalSett::MentalSett(QWidget *parent) :QWidget(parent),ui(new Ui::MentalSett)
 {
     ui->setupUi(this);

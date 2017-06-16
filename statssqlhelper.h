@@ -39,6 +39,7 @@ private:
 
 public slots:
     void setCol(int col);
+    void SlotDel();
 };
 
 #endif // STATSSQLHELPER_H
