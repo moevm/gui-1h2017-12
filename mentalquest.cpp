@@ -32,6 +32,8 @@ MentalQuest::~MentalQuest()
 
 void MentalQuest::initClock(bool neg, int count, int time, int diap,int comp)
 {
+    QTime midnight(0,0,0);
+    qsrand(midnight.secsTo(QTime::currentTime()));
     clock->setNeg(neg);
     clock->setTimer(time);
     clock->setDiap(diap);

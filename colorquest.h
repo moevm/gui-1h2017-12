@@ -6,6 +6,7 @@
 #include <QPalette>
 #include <statssqlhelper.h>
 #include <QPushButton>
+#include "QTime"
 
 namespace Ui {
 class ColorQuest;

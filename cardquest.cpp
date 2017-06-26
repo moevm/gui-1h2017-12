@@ -1,6 +1,5 @@
 #include "cardquest.h"
 #include "ui_cardquest.h"
-#include <QDebug>
 
 CardQuest::CardQuest(QWidget *parent) :
     QWidget(parent),
@@ -45,7 +44,7 @@ void CardQuest::yes()
 
         ui->result->setText(QString::fromLocal8Bit("Ваш реузльтат:  ")+QString::number((int)b)+"%");
 
-        this->sqlhelp->addStats(QString::fromLocal8Bit("Карточки Абаку"),comp*100,b);
+        this->sqlhelp->addStats(QString::fromLocal8Bit("Карточки Абакус"),comp*100,b);
     }
     num = qrand()%max;
     ui->openGLWidget->setNum(num);
@@ -53,6 +52,9 @@ void CardQuest::yes()
 
 void  CardQuest::init(int games, int max)
 {
+    QTime midnight(0,0,0);
+    qsrand(midnight.secsTo(QTime::currentTime()));
+
     this->games=games;
     this->max=max;
 

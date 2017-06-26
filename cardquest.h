@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QSpinBox>
 #include "statssqlhelper.h"
+#include "QTime"
 
 namespace Ui {
 class CardQuest;

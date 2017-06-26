@@ -35,6 +35,8 @@ ColorQuest::~ColorQuest()
 
 void ColorQuest::init(int colors, int games,int comp)
 {
+    QTime midnight(0,0,0);
+    qsrand(midnight.secsTo(QTime::currentTime()));
     this->colors=colors;
     this->games=games;
     this->comp=comp;

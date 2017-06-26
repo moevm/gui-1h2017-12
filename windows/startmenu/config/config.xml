@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>BrainStorm</Name>
+    <Version>1.0.0</Version>
+    <Title>BrainStorm</Title>
+    <Publisher>BrainStormCorporation</Publisher>
+    <!-- Directory name is used in component.xml -->
+    <StartMenuDir>BrainStorm</StartMenuDir>
+    <TargetDir>@HomeDir@/BrainStorm</TargetDir>
+</Installer>

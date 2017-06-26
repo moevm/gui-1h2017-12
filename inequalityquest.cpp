@@ -38,6 +38,9 @@ InequalityQuest::~InequalityQuest()
 
 void InequalityQuest::init(bool neg,int comp,int time,int games,int compz)
 {
+    QTime midnight(0,0,0);
+    qsrand(midnight.secsTo(QTime::currentTime()));
+
     this->negS=neg;
     this->compS=comp;
     this->timeS=time;

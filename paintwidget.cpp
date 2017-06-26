@@ -1,5 +1,4 @@
 #include "paintwidget.h"
-#include <QDebug>
 
 PaintWidget::PaintWidget(QWidget *parent):
     QOpenGLWidget(parent)

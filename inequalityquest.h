@@ -7,6 +7,7 @@
 #include <QPushButton>
 #include <statssqlhelper.h>
 #include <QTimer>
+#include "QTime"
 
 namespace Ui {
 class InequalityQuest;
